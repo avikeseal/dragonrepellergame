@@ -19,3 +19,14 @@ let monsterHealth;
 let inventory = ['stick'];
 
 //if the values never going to change you start the value with const:
+//access to all the elements on our website that we want to update with js
+const button1 = document.querySelector('#button1');
+const button2 = document.querySelector('#button2');
+const button3 = document.querySelector('#button3');
+const text = document.querySelector('#text');
+const xpText = document.querySelector('#xpText');
+const healthText = document.querySelector('#healthText');
+const goldText = document.querySelector('#goldText');
+const monsterStats = document.querySelector('#mosnterStats');
+const monsterNameText = document.querySelector('#monsterName');
+const monsterHealthText = document.querySelector('#monsterHealth');
