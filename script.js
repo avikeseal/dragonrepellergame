@@ -36,17 +36,17 @@ const locations = [ //locations array currently has one element  which is an obj
     {
     //key-value pair
     //two elements inside the object    
-    name:  'Town Square',
-    'button text': ['Go to Store', 'Go to Cave', 'Fight Dragon'],
-    'button functions': [goStore, goCave, fightDragon],
-    text: "You are in the Town Square. You see a sign that says \"Store.\""
+        name:  'Town Square',
+        'button text': ['Go to Store', 'Go to Cave', 'Fight Dragon'],
+        'button functions': [goStore, goCave, fightDragon],
+        text: "You are in the Town Square. You see a sign that says \"Store.\""
     },
 
     {
-        name:  'Town Square',
-    'button text': ['Buy 10 Health (10 Gold)', 'Buy Weapon (30 Gold)', 'Go to Town Square'],
-    'button functions': [buyHealth, buyWeapon, goTown],
-    text: "You are in the Town Square. You see a sign that says \"Store.\""
+        name:  'Store',
+        'button text': ['Buy 10 Health (10 Gold)', 'Buy Weapon (30 Gold)', 'Go to Town Square'],
+        'button functions': [buyHealth, buyWeapon, goTown],
+        text: "You have entered the Store."
     }
 ]
 
@@ -55,7 +55,7 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
-function update(location) {
+function update(locations) {
     button1.innerText = 'Go to Store';
     button2.innerText = 'Go to Cave';
     button3.innerText = 'Fight Dragon';
@@ -66,7 +66,7 @@ function update(location) {
 }
 
 function goTown() {
-
+    update(locations[0]);
 }
 
 //building functions:
