@@ -31,10 +31,22 @@ const monsterStats = document.querySelector('#mosnterStats');
 const monsterNameText = document.querySelector('#monsterName');
 const monsterHealthText = document.querySelector('#monsterHealth');
 
-const locations = [
+const locations = [ //locations array currently has one element  which is an object
+    //object:
     {
+    //key-value pair
+    //two elements inside the object    
     name:  'Town Square',
-    'button text': []
+    'button text': ['Go to Store', 'Go to Cave', 'Fight Dragon'],
+    'button functions': [goStore, goCave, fightDragon],
+    text: "You are in the Town Square. You see a sign that says \"Store.\""
+    },
+
+    {
+        name:  'Town Square',
+    'button text': ['Buy 10 Health (10 Gold)', 'Buy Weapon (30 Gold)', 'Go to Town Square'],
+    'button functions': [buyHealth, buyWeapon, goTown],
+    text: "You are in the Town Square. You see a sign that says \"Store.\""
     }
 ]
 
@@ -44,10 +56,6 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 function update(location) {
-    
-}
-
-function goTown() {
     button1.innerText = 'Go to Store';
     button2.innerText = 'Go to Cave';
     button3.innerText = 'Fight Dragon';
@@ -57,17 +65,15 @@ function goTown() {
     text.innerText = 'You are in the town square. You just stumbled upon a sign that says \"Store\".';
 }
 
+function goTown() {
+
+}
+
 //building functions:
 //this function is going to output the message 'going to store; in the web console:
 function goStore() {
     //console.log('Going to Store')
-    button1.innerText = 'Buy 10 Health (10 Gold)';
-    button2.innerText = 'Buy Weapon (30 Gold)';
-    button3.innerText = 'Go to town sqaure';
-    button1.onclick = buyHealth;
-    button2.onclick = buyWeapon;
-    button3.onclick = goTown;
-    text.innerText = 'You have entered the store ';
+   
 }
 
 function goCave() {
