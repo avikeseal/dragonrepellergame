@@ -47,6 +47,13 @@ const locations = [ //locations array currently has one element  which is an obj
         'button text': ['Buy 10 Health (10 Gold)', 'Buy Weapon (30 Gold)', 'Go to Town Square'],
         'button functions': [buyHealth, buyWeapon, goTown],
         text: "You have entered the Store."
+    },
+
+    {
+        name: 'Cave',
+        'button text' : ['Fight Slime', 'Fight Fanged Beast', 'Go to Town Square'],
+        'button function' : ['fightSlime', 'fightBeast', 'goTown'],
+        text: 'You hear a noise, a sudden feeling of claustrophobia grips you...you are in the Cave'
     }
 ]
 
@@ -78,17 +85,18 @@ function goTown() {
 //building functions:
 //this function is going to output the message 'going to store; in the web console:
 function goStore() {
-    update(locations[1])
+    update(locations[1]);
     //console.log('Going to Store')
    
 }
 
 function goCave() {
-    console.log('Going to Cave')
+    //console.log('Going to Cave')
+    update(locations[2]);
 }
 
 function fightDragon() {
-    console.log('Fighting Dragon')
+    console.log('Fighting Dragon');
 }
 
 function buyHealth() {
@@ -97,3 +105,8 @@ function buyHealth() {
 function buyWeapon() {
 }
 
+function fightSlime() {
+}
+
+function fightBeast() {
+}
