@@ -31,7 +31,7 @@ const monsterStats = document.querySelector('#mosnterStats');
 const monsterNameText = document.querySelector('#monsterName');
 const monsterHealthText = document.querySelector('#monsterHealth');
 
-const weapon = [
+const weapons = [
     {
         name: 'Stick',
         power: 5
@@ -53,10 +53,6 @@ const weapon = [
     },
 
 ];
-
-
-
-
 
 const locations = [ //locations array currently has one element  which is an object
     //object:
@@ -141,7 +137,14 @@ function buyHealth() {
 
 function buyWeapon() {
     if (gold >= 30) {
-        gold -+  30;
+        gold -=  30;
+        currentWeapon++; //doing ++ adds 1 to the current weapon
+        goldText.innerText = gold;
+        //accessing the weapons array using brackets to focus on specific weapon in the array
+        //dot notation and name of weapon
+        let newWeapon = weapons[currentWeapon].name;
+        //concatanate new weapon
+        text.innerText = "You now have a " + newWeapon + ".";
     }
 
     else {
