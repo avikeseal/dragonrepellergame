@@ -31,6 +31,33 @@ const monsterStats = document.querySelector('#mosnterStats');
 const monsterNameText = document.querySelector('#monsterName');
 const monsterHealthText = document.querySelector('#monsterHealth');
 
+const weapon = [
+    {
+        name: 'Stick',
+        power: 5
+    },
+
+    {
+        name: 'Dagger',
+        power: 30
+    },
+
+    {
+        name: 'Clawhammer',
+        power: 30
+    },
+
+    {
+        name: 'Sword',
+        power: 100
+    },
+
+];
+
+
+
+
+
 const locations = [ //locations array currently has one element  which is an object
     //object:
     {
@@ -115,6 +142,10 @@ function buyHealth() {
 function buyWeapon() {
     if (gold >= 30) {
         gold -+  30;
+    }
+
+    else {
+        text.innerText = "You do not have enough gold to purchase weapon.";
     }
 }
 
