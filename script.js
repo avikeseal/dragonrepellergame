@@ -131,7 +131,7 @@ function buyHealth() {
     }
 
     else {
-        text.innerText = "You do not have enough gold to purchase health.";
+        text.innerText = 'You do not have enough gold to purchase health.';
     }
 }
 
@@ -144,11 +144,18 @@ function buyWeapon() {
         //dot notation and name of weapon
         let newWeapon = weapons[currentWeapon].name;
         //concatanate new weapon
-        text.innerText = "You now have a " + newWeapon + ".";
+        //anytime the inner text is updated,
+        //the old text is completely erased
+        //this time we'll use the += operator to add 
+        text.innerText = 'You now have a " + newWeapon + ".';
+        inventory.push(newWeapon);
+        //inserts new weapons acquired into the inventory
+        //here inventory is an array 
+        text.innerText += 'In your inventory you have: ' + inventory;
     }
 
     else {
-        text.innerText = "You do not have enough gold to purchase weapon.";
+        text.innerText = 'You do not have enough gold to purchase weapon.';
     }
 }
 
