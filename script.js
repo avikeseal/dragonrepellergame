@@ -78,6 +78,13 @@ const locations = [ //locations array currently has one element  which is an obj
         'button function' : ['fightSlime', 'fightBeast', 'goTown'],
         text: 'You hear a noise, a sudden feeling of claustrophobia grips you...you are in the Cave'
     }
+
+    {
+        name: 'fight',
+        'button text': ['Attack', 'Dodge', 'Run'],
+        "button functions": [attack, dodge, goTown],
+        text: 'You are fighting a monster!'
+    }
 ];
 
 const monsters = [
@@ -210,10 +217,33 @@ function sellWeapon() {
 }
 
 function fightSlime() {
+    //we'll set fighting equal to 0 which 
+    //is the index of the slime in the monsters array
+    //then we call the goFight function
+    fighting = 0;
+    goFight();
 }
 
 function fightBeast() {
+    fighting = 1;
+    goFight();
 }
+
 function fightDragon() {
     //console.log('Fighting Dragon');
+    fighting = 2;
+    goFight();
 }
+
+function goFight() {
+
+}
+
+function attack() {
+
+}
+
+function dodge() {
+    
+}
+
