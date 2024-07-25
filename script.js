@@ -165,7 +165,9 @@ function buyWeapon() {
             text.innerText = 'You do not have enough gold to purchase weapon.';
         }
     } else {
-        text.innerText = 'You are already yeilding the ultimate weapon!'
+        text.innerText = 'You are already yeilding the ultimate weapon!';
+        button2.innerText = 'Sell yuor weapon for 15 gold';
+        button2.onclick = sellWeapon;
     }
     
 }
