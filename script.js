@@ -16,7 +16,7 @@ let monsterHealth;
 
 //for now:
 //if we want to add elements we have to start with an array
-let inventory = ['stick'];
+let inventory = ['Stick'];
 
 //if the values never going to change you start the value with const:
 //access to all the elements on our website that we want to update with js
@@ -147,11 +147,11 @@ function buyWeapon() {
         //anytime the inner text is updated,
         //the old text is completely erased
         //this time we'll use the += operator to add 
-        text.innerText = 'You now have a " + newWeapon + ".';
+        text.innerText = 'You now have a ' + newWeapon + '. ';
         inventory.push(newWeapon);
         //inserts new weapons acquired into the inventory
         //here inventory is an array 
-        text.innerText += 'In your inventory you have: ' + inventory;
+        text.innerText += ' In your inventory you have: ' + inventory;
     }
 
     else {
