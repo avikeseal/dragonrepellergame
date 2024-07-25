@@ -78,7 +78,27 @@ const locations = [ //locations array currently has one element  which is an obj
         'button function' : ['fightSlime', 'fightBeast', 'goTown'],
         text: 'You hear a noise, a sudden feeling of claustrophobia grips you...you are in the Cave'
     }
-]
+];
+
+const monsters = [
+    {
+        name: 'slime',
+        level: 2,
+        health: 15
+    },
+
+    {
+        name: 'Fanged Beast',
+        level: 8,
+        health: 60
+    },
+
+    {
+        name: 'Dragon',
+        level: 20,
+        health: 300
+    }
+];
 
 //initialize buttons:
 button1.onclick = goStore;
@@ -118,9 +138,7 @@ function goCave() {
     update(locations[2]);
 }
 
-function fightDragon() {
-    console.log('Fighting Dragon');
-}
+
 
 function buyHealth() {
     if (gold >= 10) {
@@ -172,8 +190,30 @@ function buyWeapon() {
     
 }
 
+function sellWeapon() {
+    //here we write an if statement that checks whether
+    //the length of the inventory array is greater than 1
+    if (inventory.length > 1) {
+        gold += 15;
+        goldText.innerText = gold;
+        //the new version of currentWeapon is scoped only to
+        //this if statement
+        //when this if statement comes to an end then the old version of 
+        //currentWeapon will be used again
+        //shift will remove the first element from the array and return 
+        //it to this variable 
+        let currentWeapon = inventory.shift();
+        text.innerText = 'You sold a ' + currentWeapon + '.';
+    } else {
+        text.innerText = "You can't sell your only weapon."
+    }
+}
+
 function fightSlime() {
 }
 
 function fightBeast() {
+}
+function fightDragon() {
+    //console.log('Fighting Dragon');
 }
