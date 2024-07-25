@@ -136,27 +136,38 @@ function buyHealth() {
 }
 
 function buyWeapon() {
-    if (gold >= 30) {
-        gold -=  30;
-        currentWeapon++; //doing ++ adds 1 to the current weapon
-        goldText.innerText = gold;
-        //accessing the weapons array using brackets to focus on specific weapon in the array
-        //dot notation and name of weapon
-        let newWeapon = weapons[currentWeapon].name;
-        //concatanate new weapon
-        //anytime the inner text is updated,
-        //the old text is completely erased
-        //this time we'll use the += operator to add 
-        text.innerText = 'You now have a ' + newWeapon + '. ';
-        inventory.push(newWeapon);
-        //inserts new weapons acquired into the inventory
-        //here inventory is an array 
-        text.innerText += ' In your inventory you have: ' + inventory;
-    }
+    //nested if statement to check if current weapon 
+    //is less than 3 which is the index of the last weapon
 
-    else {
-        text.innerText = 'You do not have enough gold to purchase weapon.';
+    //instead of nested if statements like so we can write a code 
+    //to check the length of the array itself
+    //if (currentWeapon < 3)
+    if (currentWeapon < weapons.length - 1) {
+        if (gold >= 30) {
+            gold -=  30;
+            currentWeapon++; //doing ++ adds 1 to the current weapon
+            goldText.innerText = gold;
+            //accessing the weapons array using brackets to focus on specific weapon in the array
+            //dot notation and name of weapon
+            let newWeapon = weapons[currentWeapon].name;
+            //concatanate new weapon
+            //anytime the inner text is updated,
+            //the old text is completely erased
+            //this time we'll use the += operator to add 
+            text.innerText = 'You now have a ' + newWeapon + '. ';
+            inventory.push(newWeapon);
+            //inserts new weapons acquired into the inventory
+            //here inventory is an array 
+            text.innerText += ' In your inventory you have: ' + inventory;
+        }
+    
+        else {
+            text.innerText = 'You do not have enough gold to purchase weapon.';
+        }
+    } else {
+        text.innerText = 'You are already yeilding the ultimate weapon!'
     }
+    
 }
 
 function fightSlime() {
