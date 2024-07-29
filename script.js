@@ -271,7 +271,10 @@ function attack() {
     if (health <= 0) {
         lose();
     } else if (monsterHealth <= 0) {
-        defeatMonster();
+        //do not use single equal sign since that is the assin opeartor
+        //double equal opeartor will compare equality after doing type
+        //conversions whereas triple sign  will not do the conversions
+        fighting === 2 ? winGame() : defeatMosnter();
     }
 }
 
@@ -288,5 +291,17 @@ function defeatMonster() {
 }
 
 function lose() {
+    update(locations[5]);
+}
 
+function restart() {
+    xp = 0;
+    health = 100;
+    gold = 50;
+    currentWeapon = 0;
+    inventory = ['stick'];
+    goldText.innerText = gold;
+    healthText.innerText = health;
+    xpText.innerText = xp;
+    goTown();
 }
