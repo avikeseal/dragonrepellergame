@@ -16,7 +16,7 @@ let monsterHealth;
 
 //for now:
 //if we want to add elements we have to start with an array
-let inventory = ['stick'];
+let inventory = ['Stick'];
 
 //if the values never going to change you start the value with const:
 //access to all the elements on our website that we want to update with js
@@ -30,6 +30,29 @@ const goldText = document.querySelector('#goldText');
 const monsterStats = document.querySelector('#mosnterStats');
 const monsterNameText = document.querySelector('#monsterName');
 const monsterHealthText = document.querySelector('#monsterHealth');
+
+const weapons = [
+    {
+        name: 'Stick',
+        power: 5
+    },
+
+    {
+        name: 'Dagger',
+        power: 30
+    },
+
+    {
+        name: 'Clawhammer',
+        power: 30
+    },
+
+    {
+        name: 'Sword',
+        power: 100
+    },
+
+];
 
 const locations = [ //locations array currently has one element  which is an object
     //object:
@@ -54,8 +77,35 @@ const locations = [ //locations array currently has one element  which is an obj
         'button text' : ['Fight Slime', 'Fight Fanged Beast', 'Go to Town Square'],
         'button function' : ['fightSlime', 'fightBeast', 'goTown'],
         text: 'You hear a noise, a sudden feeling of claustrophobia grips you...you are in the Cave'
+    },
+
+    {
+        name: 'fight',
+        'button text': ['Attack', 'Dodge', 'Run'],
+        "button functions": [attack, dodge, goTown],
+        text: 'You are fighting a monster!'
     }
-]
+];
+
+const monsters = [
+    {
+        name: 'slime',
+        level: 2,
+        health: 15
+    },
+
+    {
+        name: 'Fanged Beast',
+        level: 8,
+        health: 60
+    },
+
+    {
+        name: 'Dragon',
+        level: 20,
+        health: 300
+    }
+];
 
 //initialize buttons:
 button1.onclick = goStore;
@@ -95,21 +145,110 @@ function goCave() {
     update(locations[2]);
 }
 
-function fightDragon() {
-    console.log('Fighting Dragon');
-}
+
 
 function buyHealth() {
     gold -= 10;
     health += 10;
     goldText
+    if (gold >= 10) {
+        gold -= 10;
+        health += 10;
+        goldText.innerText = gold;
+        healthText.innerText = health;
+    }
+
+    else {
+        text.innerText = 'You do not have enough gold to purchase health.';
+    }
 }
 
 function buyWeapon() {
+    //nested if statement to check if current weapon 
+    //is less than 3 which is the index of the last weapon
+
+    //instead of nested if statements like so we can write a code 
+    //to check the length of the array itself
+    //if (currentWeapon < 3)
+    if (currentWeapon < weapons.length - 1) {
+        if (gold >= 30) {
+            gold -=  30;
+            currentWeapon++; //doing ++ adds 1 to the current weapon
+            goldText.innerText = gold;
+            //accessing the weapons array using brackets to focus on specific weapon in the array
+            //dot notation and name of weapon
+            let newWeapon = weapons[currentWeapon].name;
+            //concatanate new weapon
+            //anytime the inner text is updated,
+            //the old text is completely erased
+            //this time we'll use the += operator to add 
+            text.innerText = 'You now have a ' + newWeapon + '. ';
+            inventory.push(newWeapon);
+            //inserts new weapons acquired into the inventory
+            //here inventory is an array 
+            text.innerText += ' In your inventory you have: ' + inventory;
+        }
+    
+        else {
+            text.innerText = 'You do not have enough gold to purchase weapon.';
+        }
+    } else {
+        text.innerText = 'You are already yeilding the ultimate weapon!';
+        button2.innerText = 'Sell yuor weapon for 15 gold';
+        button2.onclick = sellWeapon;
+    }
+    
+}
+
+function sellWeapon() {
+    //here we write an if statement that checks whether
+    //the length of the inventory array is greater than 1
+    if (inventory.length > 1) {
+        gold += 15;
+        goldText.innerText = gold;
+        //the new version of currentWeapon is scoped only to
+        //this if statement
+        //when this if statement comes to an end then the old version of 
+        //currentWeapon will be used again
+        //shift will remove the first element from the array and return 
+        //it to this variable 
+        let currentWeapon = inventory.shift();
+        text.innerText = 'You sold a ' + currentWeapon + '.';
+    } else {
+        text.innerText = "You can't sell your only weapon."
+    }
 }
 
 function fightSlime() {
+    //we'll set fighting equal to 0 which 
+    //is the index of the slime in the monsters array
+    //then we call the goFight function
+    fighting = 0;
+    goFight();
 }
 
 function fightBeast() {
+    fighting = 1;
+    goFight();
+}
+
+function fightDragon() {
+    //console.log('Fighting Dragon');
+    fighting = 2;
+    goFight();
+}
+
+function goFight() {
+    update(locations[3]);
+    monsterHealth = monsters[fighting].health;
+    //this is how we update css styles in js:
+    monsterStats.style.display = 'block';
+}
+
+function attack() {
+
+}
+
+function dodge() {
+
 }
