@@ -127,6 +127,7 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 function update(location) {
+    monsterStats.style.display = 'none';
     //locations with bracakets button text, this is how we access
     //specific element inside an object by index number
     //using bracket notation to call function:
