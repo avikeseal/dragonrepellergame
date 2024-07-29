@@ -84,6 +84,20 @@ const locations = [ //locations array currently has one element  which is an obj
         'button text': ['Attack', 'Dodge', 'Run'],
         "button functions": [attack, dodge, goTown],
         text: 'You are fighting a monster!'
+    },
+
+    {
+        name: 'kill monster',
+        'button text': ['Go to Town Square', 'Go to Town Square', 'Go to Town Square' ],
+        'button functions': [goTown, goTown, goTown],
+        text: 'The monster screams "Arggggghhhhh!!!" as it succumbs to its demise. You gain experience points and fond gold.'
+    },
+
+    {
+        name: 'lose',
+        'button text': ['REPLAY?', 'REPLAY?', 'REPLAY?'],
+        'button functions': [restart, restart, restart],
+        text: 'You died. '
     }
 ];
 
