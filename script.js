@@ -77,7 +77,7 @@ const locations = [ //locations array currently has one element  which is an obj
         'button text' : ['Fight Slime', 'Fight Fanged Beast', 'Go to Town Square'],
         'button function' : ['fightSlime', 'fightBeast', 'goTown'],
         text: 'You hear a noise, a sudden feeling of claustrophobia grips you...you are in the Cave'
-    }
+    },
 
     {
         name: 'fight',
@@ -240,10 +240,27 @@ function goFight() {
     monsterHealth = monsters[fighting].health;
     //this is how we update css styles in js:
     monsterStats.style.display = 'block';
+    //monster name and monster health:
+    monsterNameText.innerText = monsters[fighting].name;
+    monsterHealthText.innerText = monsterHealth;
 }
 
 function attack() {
-
+    text.innerText = "The " + monsters[fighting].name + " attacks.";
+    //adding more text using the += operator and string concatenation to get the weapon name:
+    text.innerText += "You attack it with your " + weapons[currentWeapon].name + ".";
+    //when you attack you get damaged:
+    health -= monsters[fighting].level;
+    //the monster gets damaged as well:
+    monsterHealth -= weapons[currentWeapon].power;
+    //here we'll add a random number between 1 and XP:
+    //math.random will create a random number between 0 and 1
+    //it will then multiply with the xp and math.floor will round it down
+    //to the nearest whole number and then add 1
+    monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+    //updating inner text of health and monsterHealth:
+    healthText.innerText = health;
+    monsterHealth.innerText = monsterHealth;
 }
 
 function dodge() {
