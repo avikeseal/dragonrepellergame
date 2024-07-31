@@ -62,21 +62,21 @@ const locations = [ //locations array currently has one element  which is an obj
         name:  'Town Square',
         'button text': ['Go to Store', 'Go to Cave', 'Fight Dragon'],
         'button functions': [goStore, goCave, fightDragon],
-        text: "You are in the Town Square. You see a sign that says \"Store.\""
+        text: 'You are in the Town Square. You see a sign that says \"Store.\"'
     },
 
     {
         name:  'Store',
         'button text': ['Buy 10 Health (10 Gold)', 'Buy Weapon (30 Gold)', 'Go to Town Square'],
         'button functions': [buyHealth, buyWeapon, goTown],
-        text: "You have entered the Store."
+        text: 'You have entered the Store.'
     },
 
     {
         name: 'Cave',
         'button text' : ['Fight Slime', 'Fight Fanged Beast', 'Go to Town Square'],
-        'button function' : ['fightSlime', 'fightBeast', 'goTown'],
-        text: 'You hear a noise, a sudden feeling of claustrophobia grips you...you are in the Cave'
+        'button functions' : [fightSlime, fightBeast, goTown],
+        text: "You hear a noise, a sudden feeling of claustrophobia grips you...you are in the Cave"
     },
 
     {
@@ -136,7 +136,7 @@ button3.onclick = fightDragon;
 function update(location) {
     //this id for when the player arrives at a new location:
     //the monsterStats won't show up:
-    monsterStats.style.display = none;
+    //monsterStats.style.display = block;
     //locations with bracakets button text, this is how we access
     //specific element inside an object by index number
     //using bracket notation to call function:
@@ -215,7 +215,7 @@ function buyWeapon() {
         }
     } else {
         text.innerText = 'You are already yeilding the ultimate weapon!';
-        button2.innerText = 'Sell yuor weapon for 15 gold';
+        button2.innerText = 'Sell your weapon for 15 gold';
         button2.onclick = sellWeapon;
     }
     
@@ -324,7 +324,7 @@ function lose() {
 }
 
 function winGame() {
-    update(ocations[6]);
+    update(locations[6]);
 }
 
 function restart() {
