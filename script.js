@@ -261,8 +261,27 @@ function attack() {
     //updating inner text of health and monsterHealth:
     healthText.innerText = health;
     monsterHealth.innerText = monsterHealth;
+    //now we'll check if health <= 0:
+    //if it is we'll call the function lose:
+    if (health <= 0) {
+        lose();
+        //else statement can be conditional with an else if statement:
+        //here we use an else if statement with an if statement to see
+        //if monster health is <= 0:
+        //if it is the defeatMonster function is called:
+    } else if (monsterHealth <= 0) {
+        defeatMonster();
+    }
 }
 
 function dodge() {
+
+}
+
+function defeatMonster() {
+
+}
+
+function lose() {
 
 }
