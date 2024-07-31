@@ -287,7 +287,11 @@ function attack() {
         //if monster health is <= 0:
         //if it is the defeatMonster function is called:
     } else if (monsterHealth <= 0) {
-        defeatMonster();
+        if (fighting === 2) {
+            winGame();
+        } else {
+            defeatMonster();
+        }
     }
 }
 
