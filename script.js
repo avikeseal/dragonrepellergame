@@ -98,6 +98,13 @@ const locations = [ //locations array currently has one element  which is an obj
         'button text': ['REPLAY?', 'REPLAY?', 'REPLAY?'],
         'button functions': [restart, restart, restart],
         text: 'You are dead x('
+    },
+
+    {
+        name: 'win',
+        'button text': ['REPLAY?', 'REPLAY', 'REPLAY'],
+        'button functions': [restart, restart, restart],
+        text: 'You have defeated the dragon! HUZZAH! YOU HAVE WON THE TOURNAMENT!'
     }
 ];
 
@@ -287,11 +294,10 @@ function attack() {
         //if monster health is <= 0:
         //if it is the defeatMonster function is called:
     } else if (monsterHealth <= 0) {
-        if (fighting === 2) {
-            winGame();
-        } else {
-            defeatMonster();
-        }
+        //in-line if else statement:
+        //if fighting corresponds to the value with index 2 then winGame function
+        //will activate else defeatMonster function.
+        fighting === 2? winGame() : defeatMonster();
     }
 }
 
@@ -315,6 +321,10 @@ function defeatMonster() {
 
 function lose() {
     update(locations[5]);
+}
+
+function winGame() {
+    update(ocations[6]);
 }
 
 function restart() {
