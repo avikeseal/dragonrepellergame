@@ -275,10 +275,20 @@ function attack() {
 }
 
 function dodge() {
-
+    //string concatenation to get the monster name that our slayer is fighting:
+    text.innerText = "You dodge the attack from the " + monsters[fighting].name + ".";
 }
 
 function defeatMonster() {
+    //here we're gonna set gold equal to monster's level times 6.7 
+    //and then round that down to the nearest whole number:
+    gold += Math.floor(monsters[fighting].level * 6.7);
+    //and now we update the inner text on the screen:
+    xp += monsters[fighting].level;
+    goldText.innerText = gold;
+    xpText.innerText = xp;
+    //finally we call the update function and pass 4 for location:
+    update(locations[4]);
 
 }
 
