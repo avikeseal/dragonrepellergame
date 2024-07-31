@@ -127,6 +127,9 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 function update(location) {
+    //this id for when the player arrives at a new location:
+    //the monsterStats won't show up:
+    monsterStats.style.display = none;
     //locations with bracakets button text, this is how we access
     //specific element inside an object by index number
     //using bracket notation to call function:
@@ -307,5 +310,17 @@ function defeatMonster() {
 }
 
 function lose() {
+    update(locations[5]);
+}
 
+function restart() {
+    xp = 0;
+    health = 100;
+    gold = 50;
+    currentWeapon = 0;
+    inventory = ['stick'];
+    goldText.innerText = gold;
+    healthText.innerText = health;
+    xpText.innerText = xp;
+    goTown();
 }
