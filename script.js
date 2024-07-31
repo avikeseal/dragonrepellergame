@@ -172,6 +172,9 @@ function goCave() {
 
 
 function buyHealth() {
+    gold -= 10;
+    health += 10;
+    goldText
     if (gold >= 10) {
         gold -= 10;
         health += 10;
